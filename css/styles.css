@@ -1,0 +1,939 @@
+/* primary-color-text #2196F3 (синій)
+   main-color-text #212121 (чорний)
+   secondary-color-text #757575 (сірий)
+   logo-color-text #000000 (глибокий чорний)
+   footer-color-text #FFFFFF (білий)
+   active-button #188CE8 (темно синій)
+   kontakty-footer rgba(255, 255, 255, 0.6) (білий з альфа-каналом)
+   
+   main-color-bg #FFFFFF; (білий)
+   secondary-color-bg #F5F4FA; (ліловий)
+   footer-color-bg #2F303A; (темно сірий)*/
+
+:root {
+    --primary-color-text: #2196F3;
+    --main-color-text: #212121;
+    --secondary-color-text: #757575;
+    --logo-color-text: #000000;
+    --footer-color-text: #FFFFFF;
+    --main-color-bg: #FFFFFF;
+    --secondary-color-bg: #F5F4FA;
+    --footer-color-bg: #2F303A;
+    --active-button: #188CE8;
+    --card-border-color: #EEEEEE;
+    --kontakty-footer: rgba(255, 255, 255, 0.6);
+    --shadow-main-button: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    --shadow-card-solid: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    --shadow-filtr-button: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+    --work-list: #EEEEEE;
+    --line-header: #ECECEC;
+    --overlay-color: rgba(47, 48, 58, 0.4);
+    --border-client: #AFB1B8;
+    --footer-socsolid-main: rgba(255, 255, 255, 0.1);
+    --hero-bg: #C4C4C4;
+    --hover-overlay-blue: rgba(33, 150, 243, 0.9);
+    --shadow-portfolio-card: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+    --transition-bezier: cubic-bezier(0.4, 0, 0.2, 1);
+    --working-solid: rgba(47, 48, 58, 0.8);
+    --backdrop-color: rgba(0, 0, 0, 0.2);
+    --modal-bg-color: #FFFFFF;
+    --time-250: 250ms;
+    --border-btn: rgba(0, 0, 0, 0.1);
+    --input-footer: rgba(255, 255, 255, 0.3);
+    --input-modal: rgba(33, 33, 33, 0.2);
+    --textarea-modal: rgba(117, 117, 117, 0.5);
+}
+
+html {
+    box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--main-color-bg);
+    color: var(--secondary-color-text);
+}
+
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+ul, ol { 
+    margin: 0;
+    padding-left: 0;
+}
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+.hero-button,
+.all-button .fr-button {
+    font-family: inherit;
+    cursor: pointer;
+    border: transparent;
+    border-radius: 4px;
+}
+
+
+/* !!!стилі Шапки!!! */
+
+.logo {
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.19;
+    letter-spacing: 0.03em;
+    color: var(--logo-color-text);
+    margin-right: 93px;
+}
+.logo-color {
+    color: var(--primary-color-text);
+}
+
+.menu-studia .link,
+.menu-portfolio .link,
+.menu-kontakty .link,
+.mail .link,
+.tel .link {
+    display: block;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.02em;
+    padding-top: 32px;
+    padding-bottom: 32px;
+
+    transition-property: color;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+.menu-studia .link,
+.menu-portfolio .link,
+.menu-kontakty .link {
+    color: var(--main-color-text);
+}
+.menu-studia .link:hover,
+.menu-portfolio .link:hover,
+.menu-kontakty .link:hover,
+.menu-studia .link:focus,
+.menu-portfolio .link:focus,
+.menu-kontakty .link:focus {
+    color: var(--primary-color-text);
+}
+/* підсвічування поточного меню */
+.menu-portfolio .link.current,
+.menu-studia .link.current {
+    color: var(--primary-color-text);
+}
+.menu-dist {
+   display: block;
+   position: relative; 
+}
+.link.current::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: var(--primary-color-text);
+    border-radius: 2px;
+    position: absolute;
+    bottom: -1px;
+}
+
+
+.mail .link,
+.tel .link {
+    display: flex;
+    color: var(--secondary-color-text);
+    fill: var(--secondary-color-text);
+}
+.logo-mail {
+    color: currentColor;
+    margin-right: 10px;
+
+    transition-property: fill;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+.mail .link:hover,
+.tel .link:hover,
+.mail .link:focus,
+.tel .link:focus {
+    color: var(--primary-color-text);
+    fill: var(--primary-color-text);
+}
+
+.container.shapka {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.kontakty {
+    display: flex;
+    gap: 30px;
+}
+.kntkt-dist .link {
+    display: flex;
+    align-items: center;
+}
+
+.header {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: var(--line-header);
+}
+
+
+
+
+/* !!!стилі Футера!!! */
+.footer {
+    background-color: var(--footer-color-bg);
+    padding: 60px 0;
+}
+.logo-footer {
+    display: inline-block;
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.19;
+    letter-spacing: 0.03em;
+    color: var(--footer-color-text);
+    margin-bottom: 20px;
+}
+/* .logo-color задано в стилі Шапки */
+.kontakt .link {
+    font-style: normal;
+    font-size: 14px;
+    line-height: 1.71;
+    letter-spacing: 0.03em;
+
+    transition-property: color;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+.f-adress .link {
+    color: var(--footer-color-text);
+}
+.f-mail .link,
+.f-tel .link {
+    color: var(--kontakty-footer)   
+}
+.kontakt .link:hover,
+.kontakt .link:focus {
+    color: var(--primary-color-text);
+}
+.f-kontakty .kontakt:not(:last-child) {
+    margin-bottom: 9px;
+}
+.footer-pos {
+    display: flex;
+    gap: 93px;
+    align-items: baseline;
+}
+
+.footer-link {
+    display: block;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--footer-color-text);
+    margin-bottom: 20px;
+}
+
+.list-soc {
+    display: flex;
+    gap: 10px;
+}
+.solid-round {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    background-color: var(--footer-socsolid-main);
+    fill: var(--footer-color-text);
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+
+    transition-property: background-color;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+.solid-round:hover,
+.solid-round:focus {
+    background-color: var(--primary-color-text);
+}
+
+
+.footer-button {
+    position: relative;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.88;
+    align-items: center;
+    text-align: left;
+    letter-spacing: 0.06em;
+    color: var(--footer-color-text);
+
+    background-color: var(--primary-color-text);
+    border-radius: 4px;
+    padding: 10px 28px;
+    cursor: pointer;
+    border: transparent;
+    box-shadow: var(--shadow-main-button);
+    width: 200px;
+    margin-left: 9px;
+
+    transition-property: background-color;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+.footer-button:hover,
+.footer-button:focus {
+    background-color: var(--active-button);
+}
+.logo-send {
+    position: absolute;
+    top: 50%;
+    right: 28px;
+    transform: translateY(-50%);
+}
+
+.form-input::placeholder {
+    color: var(--kontakty-footer);
+}
+.form-input {
+    padding: 15px 16px;
+    width: 358px;
+    height: 50px;
+    border-radius: 4px;
+    border: 1px solid var(--input-footer);
+    background-color: var(--footer-color-bg);
+    color: var(--footer-color-text);
+    box-shadow: var(--shadow-main-button);
+    outline: none;
+    
+    transition-property: border-color;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}  
+.form-input:focus {
+    border-color: var(--primary-color-text);
+}
+
+
+/* ----------!!!стилі головної Студія!!!---------- */
+.hero {
+    padding: 200px 0;
+    text-align: center;
+}
+.overlay {
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: 
+    linear-gradient(to right, var(--overlay-color), var(--overlay-color)),
+    url(../images/hero.jpg);
+    background-color: var(--hero-bg);
+    background-size: cover;
+}
+.hero-title {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 44px;
+    line-height: 1.36;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--footer-color-text);
+    margin: 0px 0px 30px 0px;
+}
+
+.title-centr {
+    max-width: 696px;
+}
+.hero-button {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.88;
+    text-align: center;
+    letter-spacing: 0.06em;
+    background-color: var(--primary-color-text);
+    color: var(--footer-color-text);
+
+    padding: 10px 32px;
+    box-shadow: var(--shadow-main-button);
+
+    transition-property: background-color;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+.hero-button:hover,
+.hero-button:focus {
+    background-color: var(--active-button);
+}
+
+.visually-hidden {
+    position: absolute;
+    white-space: nowrap;
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    padding: 0;
+    margin: -1px;
+    clip-path: inset(50%);
+  }
+.title-section {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.17;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: var(--main-color-text);
+    margin-bottom: 50px;
+    margin-top: 0;
+    padding: 0;
+}
+.title-perevagy {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--main-color-text);
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.paragraph-perevagy {
+    font-size: 14px;
+    line-height: 1.71;
+    letter-spacing: 0.03em;
+    color: var(--secondary-color-text);
+    max-width: 270px;
+}
+.bg-perevagy {
+    display: flex;
+    background-color: var(--secondary-color-bg);
+    width: 270px;
+    height: 120px;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.thumb-item {
+    position: relative;
+}
+.thumb-pos-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    background-color: var(--working-solid);
+}
+.thumb-working-text {
+    position: absolute;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--main-color-bg);
+}
+
+.title-name {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.19;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: var(--main-color-text);
+    margin-bottom: 10px;
+}
+.title-subname {
+    font-size: 16px;
+    line-height: 1.19;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: var(--secondary-color-text);
+    margin-bottom: 16px;
+}
+.card-solid {
+    background-color: var(--main-color-bg);
+    border-radius: 0 0 4px 4px;
+    box-shadow: var(--shadow-card-solid);
+}
+.comand-content {
+    padding: 30px 0;
+}
+.list-soc-comand {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.solid-round-comand {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    background-color: var(--footer-socsolid-main);
+    border-radius: 50%;
+    fill: var(--border-client);
+    justify-content: center;
+    align-items: center;
+
+    transition-property: background-color, fill;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+.logo-soc-comand {
+    color: currentColor;
+}
+.solid-round-comand:hover,
+.solid-round-comand:focus {
+    background-color: var(--primary-color-text);
+    fill: var(--footer-color-text);
+}    
+
+.bg-violet {
+    background-color: var(--secondary-color-bg);
+    padding: 94px 0;
+}
+.bg-white-perevagy {
+    padding-top: 94px;
+}
+.bg-white-work {
+    padding: 94px 0;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.perevagy, .working, .comand {
+    display: flex;
+    gap: 30px;
+}
+.clients {
+    display: flex;
+    gap: 30px;
+}
+.border-client {
+    display: flex;
+    border: 1px solid var(--border-client);
+    border-radius: 4px;
+    height: 92px;
+    min-width: 170px;
+    fill: var(--border-client);
+    justify-content: center;
+    align-items: center;
+
+    transition-property: border-color, fill;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+.logo-client {
+    color: currentColor;
+}
+.border-client:hover,
+.border-client:focus {
+    border-color: var(--primary-color-text);
+    fill: var(--primary-color-text);
+}
+
+
+/* ----------!!!стилі головної Портфоліо!!!---------- */
+
+/* стилі Фільтра */
+.all .fr-button,
+.web .fr-button,
+.app .fr-button,
+.design .fr-button,
+.marketing .fr-button {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.62;
+    text-align: center;
+    letter-spacing: 0.03em;
+    background-color: var(--secondary-color-bg);
+    color: var(--main-color-text);
+    padding: 6px 22px;
+
+    transition-property: color, background-color, box-shadow;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+
+.all .fr-button:hover,
+.all .fr-button:focus,
+.web .fr-button:hover,
+.web .fr-button:focus,
+.app .fr-button:hover,
+.app .fr-button:focus,
+.design .fr-button:hover,
+.design .fr-button:focus,
+.marketing .fr-button:hover,
+.marketing .fr-button:focus {
+    background-color: var(--primary-color-text);
+    color: var(--footer-color-text);
+    box-shadow: var(--shadow-filtr-button);
+}
+
+ 
+.title-portfolio {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 2;
+    letter-spacing: 0.06em;
+    color: var(--main-color-text);
+    margin-bottom: 4px;
+}
+.subname-portfolio {
+    font-style: normal;
+    font-size: 16px;
+    line-height: 1.88;
+    letter-spacing: 0.03em;
+    color: var(--secondary-color-text);
+}
+
+.all-button {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.work-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.border-card {
+    flex-basis: calc((100% - 60px) / 3);
+}
+.border-card:nth-child(3n) {
+    margin-right: 0;
+}
+.border-shadow > .link {
+    display: block;
+    position: relative;
+
+    transition-property: box-shadow;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+.border-shadow > .link:hover,
+.border-shadow > .link:focus {
+    box-shadow: var(--shadow-portfolio-card);
+}
+
+.portfolio-bg {
+    padding: 94px 0;
+}
+
+.card-content {
+    padding: 20px 24px;
+    border-left: 1px solid var(--work-list);
+    border-bottom: 1px solid var(--work-list);
+    border-right: 1px solid var(--work-list);
+}
+
+.product-thumb {
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+.hover-overlay-text {
+    display: block;
+    position: absolute;
+    background-color: var(--hover-overlay-blue);
+    width: 370px;
+    height: 294px;
+    font-size: 18px;
+    line-height: 1.56;
+    letter-spacing: 0.03em;
+    color: var(--main-color-bg);
+    padding: 63px 24px;
+
+    transform: translateY(100%);
+    transition-property: transform;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+.border-shadow > .link:hover .hover-overlay-text,
+.border-shadow > .link:focus .hover-overlay-text {
+    content: '';
+    transform: translateY(0%);
+}
+
+/* ----------!!!стилі Модального вікна!!!---------- */
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--backdrop-color);
+    opacity: 1;
+    visibility: visible;
+    transition: opacity var(--time-250) var(--transition-bezier), visibility var(--time-250) var(--transition-bezier);
+}
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(0.9);
+}
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform var(--time-250) var(--transition-bezier);
+
+    min-width: 528px;
+    min-height: 581px;
+    border-radius: 4px;
+    padding: 40px;
+
+    background-color: var(--modal-bg-color);
+    box-shadow: var(--shadow-card-solid);
+}
+.btn-close {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    top: 8px;
+    right: 8px;
+    padding: 0;
+    cursor: pointer;
+    border: 1px solid var(--border-btn);
+    background-color: transparent;
+}
+.btn-img {
+    display: block;
+    fill: var(--logo-color-text);
+
+    transition-property: fill;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+.btn-close:hover .btn-img,
+.btn-close:focus .btn-img {
+    fill: var(--primary-color-text);
+}
+
+.form-modal {
+    margin-top: 12px;
+    display: block;
+}
+.name-form {
+    display: block;
+    font-size: 20px;
+    line-height: 1.15;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: var(--main-color-text);
+}
+.form-field,
+.form-field-textarea {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.form-field {
+    margin-bottom: 10px;
+}
+.form-field-check {
+    margin-top: 20px;
+}
+.form-field-textarea {
+    margin-bottom: 20px;
+}
+
+.modal-input {
+    display: block;
+    width: 448px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid var(--input-modal);
+    padding: 14px 16px 14px 42px;
+    outline: none;
+
+    transition-property: border-color;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+.modal-input:focus, 
+.modal-textarea:focus {
+    border-color: var(--primary-color-text);
+}
+.logo-modal {
+    position: absolute;
+    top: calc(8px + 50%);
+    left: 15px;
+    transform: translateY(-50%);
+    fill: var(--main-color-text);
+
+    transition-property: fill;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+.modal-input:focus + .logo-modal {
+    fill: var(--primary-color-text);
+}
+.user-modal {
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.01em;
+}
+.modal-textarea::placeholder {
+    color: var(--textarea-modal);
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.01em;
+}
+.modal-textarea {
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.01em;
+
+    height: 120px;
+    resize: none;
+    border-radius: 4px;
+    border: 1px solid var(--input-modal);
+    padding: 12px 16px;
+    outline: none;
+
+    transition-property: border-color;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+.form-check-contrakt {
+    color: var(--primary-color-text);
+    text-decoration: underline 1px;
+}
+
+.hero-button-modal {
+    display: block;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    line-height: 1.88;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.06em;
+    padding: 0;
+
+    width: 200px;
+    height: 50px;
+    background-color: var(--primary-color-text);
+    border-radius: 4px;
+    box-shadow: var(--shadow-main-button);
+    color: var(--footer-color-text);
+    border-color: transparent;
+
+    transition-property: background-color;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+.hero-button-modal:hover,
+.hero-button-modal:focus {
+    background-color: var(--active-button);
+    cursor: pointer;
+}
+
+.user-modal-check {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 1.71;
+    letter-spacing: 0.03em;
+    color: var(--secondary-color-text);
+}
+.modal-input-check {
+    position: absolute;
+    white-space: nowrap;
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    padding: 0;
+    margin: -1px;
+    clip-path: inset(50%);
+}
+.icon-check-custom {
+    display: inline-block; 
+    margin-left: 12px;
+    margin-right: 8px;
+    background-color: var(--footer-color-text);
+    border: 2px solid var(--main-color-text);
+    border-radius: 2px;
+    cursor: pointer;
+
+    transition-property: background-color;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+.modal-input-check:checked + .icon-check-custom {
+    display: inline-block;
+    margin-left: 12px;
+    margin-right: 8px;
+    background-color: var(--primary-color-text);
+    border-radius: 2px;
+    border-color: var(--primary-color-text);
+}
