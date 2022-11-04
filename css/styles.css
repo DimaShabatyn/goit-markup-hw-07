@@ -74,7 +74,7 @@ img {
 }
 
 .hero-button,
-.all-button .fr-button {
+.filtr__button {
     font-family: inherit;
     cursor: pointer;
     border: transparent;
@@ -409,12 +409,14 @@ img {
 
 /* ----------!!!стилі головної Портфоліо!!!---------- */
 
-/* стилі Фільтра */
-.all .fr-button,
-.web .fr-button,
-.app .fr-button,
-.design .fr-button,
-.marketing .fr-button {
+/* --- стилі Фільтра --- */
+.filtr {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.filtr__button {
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -429,59 +431,26 @@ img {
     transition-duration: var(--time-250);
     transition-timing-function: var(--transition-bezier);
 }
-
-.all .fr-button:hover,
-.all .fr-button:focus,
-.web .fr-button:hover,
-.web .fr-button:focus,
-.app .fr-button:hover,
-.app .fr-button:focus,
-.design .fr-button:hover,
-.design .fr-button:focus,
-.marketing .fr-button:hover,
-.marketing .fr-button:focus {
+.filtr__button:hover,
+.filtr__button:focus {
     background-color: var(--primary-color-text);
     color: var(--footer-color-text);
     box-shadow: var(--shadow-filtr-button);
 }
 
- 
-.title-portfolio {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 2;
-    letter-spacing: 0.06em;
-    color: var(--main-color-text);
-    margin-bottom: 4px;
-}
-.subname-portfolio {
-    font-style: normal;
-    font-size: 16px;
-    line-height: 1.88;
-    letter-spacing: 0.03em;
-    color: var(--secondary-color-text);
-}
-
-.all-button {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    margin-bottom: 50px;
-}
-
-.work-list {
+/* --- стилі Списка карточок --- */
+.product-list {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
-}
-.border-card {
+} 
+.product-item {
     flex-basis: calc((100% - 60px) / 3);
 }
-.border-card:nth-child(3n) {
+.product-item:nth-child(3n) {
     margin-right: 0;
 }
-.border-shadow > .link {
+.product-box__link {
     display: block;
     position: relative;
 
@@ -489,28 +458,16 @@ img {
     transition-duration: var(--time-250);
     transition-timing-function: var(--transition-bezier);
 }
-.border-shadow > .link:hover,
-.border-shadow > .link:focus {
+.product-box__link:hover,
+.product-box__link:focus {
     box-shadow: var(--shadow-portfolio-card);
 }
-
-.portfolio-bg {
-    padding: 94px 0;
-}
-
-.card-content {
-    padding: 20px 24px;
-    border-left: 1px solid var(--work-list);
-    border-bottom: 1px solid var(--work-list);
-    border-right: 1px solid var(--work-list);
-}
-
-.product-thumb {
+.product-box__thumb {
     display: block;
     position: relative;
     overflow: hidden;
 }
-.hover-overlay-text {
+.product-box__text {
     display: block;
     position: absolute;
     background-color: var(--hover-overlay-blue);
@@ -527,11 +484,176 @@ img {
     transition-duration: var(--time-250);
     transition-timing-function: var(--transition-bezier);
 }
-.border-shadow > .link:hover .hover-overlay-text,
-.border-shadow > .link:focus .hover-overlay-text {
+.product-box__link:hover .product-box__text,
+.product-box__link:focus .product-box__text {
     content: '';
     transform: translateY(0%);
 }
+.product-box__name {
+    padding: 20px 24px;
+    border-left: 1px solid var(--work-list);
+    border-bottom: 1px solid var(--work-list);
+    border-right: 1px solid var(--work-list);
+}
+.product-box__title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 2;
+    letter-spacing: 0.06em;
+    color: var(--main-color-text);
+    margin-bottom: 4px;
+}
+.product-box__subtitle {
+    font-style: normal;
+    font-size: 16px;
+    line-height: 1.88;
+    letter-spacing: 0.03em;
+    color: var(--secondary-color-text);
+}
+
+
+/* ----------!!!стилі Футера!!!---------- */
+.footer {
+    background-color: var(--footer-color-bg);
+    padding: 60px 0;
+}
+.footer-position {
+    display: flex;
+    gap: 93px;
+    align-items: baseline;
+}
+
+/* --- Блок 1 ---*/
+.footer-logo {
+    display: inline-block;
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.19;
+    letter-spacing: 0.03em;
+    color: var(--footer-color-text);
+    margin-bottom: 20px;
+}
+.footer-logo__color {
+    color: var(--primary-color-text);
+}
+.footer-contacts__item:not(:last-child) {
+    margin-bottom: 9px;
+}
+.footer-contacts__link {
+    font-style: normal;
+    font-size: 14px;
+    line-height: 1.71;
+    letter-spacing: 0.03em;
+
+    transition-property: color;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+.footer-contacts__link--color1 {
+    color: var(--footer-color-text);
+}
+.footer-contacts__link--color2 {
+    color: var(--kontakty-footer)   
+}
+.footer-contacts__link:hover,
+.footer-contacts__link:focus {
+    color: var(--primary-color-text);
+}
+
+/* --- Блок 2 ---*/
+.footer-title {
+    display: block;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--footer-color-text);
+    margin-bottom: 20px;
+}
+.footer-socialnet__list {
+    display: flex;
+    gap: 10px;
+}
+.footer-socialnet__link {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    background-color: var(--footer-socsolid-main);
+    fill: var(--footer-color-text);
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+
+    transition-property: background-color;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+.footer-socialnet__link:hover,
+.footer-socialnet__link:focus {
+    background-color: var(--primary-color-text);
+}
+
+/* --- Блок 3 ---*/
+.footer-form__input {
+    padding: 15px 16px;
+    width: 358px;
+    height: 50px;
+    border-radius: 4px;
+    border: 1px solid var(--input-footer);
+    background-color: var(--footer-color-bg);
+    color: var(--footer-color-text);
+    box-shadow: var(--shadow-main-button);
+    outline: none;
+    
+    transition-property: border-color;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+.footer-form__input::placeholder {
+    color: var(--kontakty-footer);
+}
+.footer-form__input:focus {
+    border-color: var(--primary-color-text);
+}
+.footer-form__button {
+    position: relative;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.88;
+    align-items: center;
+    text-align: left;
+    letter-spacing: 0.06em;
+    color: var(--footer-color-text);
+
+    background-color: var(--primary-color-text);
+    border-radius: 4px;
+    padding: 10px 28px;
+    cursor: pointer;
+    border: transparent;
+    box-shadow: var(--shadow-main-button);
+    width: 200px;
+    margin-left: 9px;
+
+    transition-property: background-color;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+.footer-form__button:hover,
+.footer-form__button:focus {
+    background-color: var(--active-button);
+}
+.footer-form__logo {
+    position: absolute;
+    top: 50%;
+    right: 28px;
+    transform: translateY(-50%);
+}
+
 
 /* ----------!!!стилі Модального вікна!!!---------- */
 .backdrop {
@@ -761,149 +883,3 @@ img {
     border-radius: 2px;
     border-color: var(--primary-color-text);
 }
-
-
-/* ----------!!!стилі Футера!!!---------- */
-.footer {
-    background-color: var(--footer-color-bg);
-    padding: 60px 0;
-}
-.footer-position {
-    display: flex;
-    gap: 93px;
-    align-items: baseline;
-}
-
-/* --- Блок 1 ---*/
-.footer-logo {
-    display: inline-block;
-    font-family: 'Raleway', sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 26px;
-    line-height: 1.19;
-    letter-spacing: 0.03em;
-    color: var(--footer-color-text);
-    margin-bottom: 20px;
-}
-.footer-logo__color {
-    color: var(--primary-color-text);
-}
-.footer-contacts__item:not(:last-child) {
-    margin-bottom: 9px;
-}
-.footer-contacts__link {
-    font-style: normal;
-    font-size: 14px;
-    line-height: 1.71;
-    letter-spacing: 0.03em;
-
-    transition-property: color;
-    transition-duration: var(--time-250);
-    transition-timing-function: var(--transition-bezier);
-}
-.footer-contacts__link--color1 {
-    color: var(--footer-color-text);
-}
-.footer-contacts__link--color2 {
-    color: var(--kontakty-footer)   
-}
-.footer-contacts__link:hover,
-.footer-contacts__link:focus {
-    color: var(--primary-color-text);
-}
-
-/* --- Блок 2 ---*/
-.footer-title {
-    display: block;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.14;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    color: var(--footer-color-text);
-    margin-bottom: 20px;
-}
-.footer-socialnet__list {
-    display: flex;
-    gap: 10px;
-}
-.footer-socialnet__link {
-    display: flex;
-    width: 44px;
-    height: 44px;
-    background-color: var(--footer-socsolid-main);
-    fill: var(--footer-color-text);
-    border-radius: 50%;
-    justify-content: center;
-    align-items: center;
-
-    transition-property: background-color;
-    transition-duration: var(--time-250);
-    transition-timing-function: var(--transition-bezier);
-}
-.footer-socialnet__link:hover,
-.footer-socialnet__link:focus {
-    background-color: var(--primary-color-text);
-}
-
-/* --- Блок 3 ---*/
-.footer-form__input {
-    padding: 15px 16px;
-    width: 358px;
-    height: 50px;
-    border-radius: 4px;
-    border: 1px solid var(--input-footer);
-    background-color: var(--footer-color-bg);
-    color: var(--footer-color-text);
-    box-shadow: var(--shadow-main-button);
-    outline: none;
-    
-    transition-property: border-color;
-    transition-duration: var(--time-250);
-    transition-timing-function: var(--transition-bezier);
-}
-.footer-form__input::placeholder {
-    color: var(--kontakty-footer);
-}
-.footer-form__input:focus {
-    border-color: var(--primary-color-text);
-}
-.footer-form__button {
-    position: relative;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.88;
-    align-items: center;
-    text-align: left;
-    letter-spacing: 0.06em;
-    color: var(--footer-color-text);
-
-    background-color: var(--primary-color-text);
-    border-radius: 4px;
-    padding: 10px 28px;
-    cursor: pointer;
-    border: transparent;
-    box-shadow: var(--shadow-main-button);
-    width: 200px;
-    margin-left: 9px;
-
-    transition-property: background-color;
-    transition-duration: var(--time-250);
-    transition-timing-function: var(--transition-bezier);
-}
-.footer-form__button:hover,
-.footer-form__button:focus {
-    background-color: var(--active-button);
-}
-.footer-form__logo {
-    position: absolute;
-    top: 50%;
-    right: 28px;
-    transform: translateY(-50%);
-}
-
-
-
-
