@@ -656,6 +656,8 @@ img {
 
 
 /* ----------!!!стилі Модального вікна!!!---------- */
+
+/* --- Темний фон --- */
 .backdrop {
     position: fixed;
     top: 0;
@@ -674,10 +676,9 @@ img {
     pointer-events: none;
     visibility: hidden;
 }
-.backdrop.is-hidden .modal {
-    transform: translate(-50%, -50%) scale(0.9);
-}
-.modal {
+
+/* --- Модальне вікно --- */
+.modal-window {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -692,7 +693,12 @@ img {
     background-color: var(--modal-bg-color);
     box-shadow: var(--shadow-card-solid);
 }
-.btn-close {
+.backdrop.is-hidden .modal-window {
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+/* --- Кнопка закриття модального вікна --- */
+.modal-button__close {
     display:flex;
     align-items: center;
     justify-content: center;
@@ -707,7 +713,7 @@ img {
     border: 1px solid var(--border-btn);
     background-color: transparent;
 }
-.btn-img {
+.modal-button__img {
     display: block;
     fill: var(--logo-color-text);
 
@@ -715,16 +721,13 @@ img {
     transition-duration: var(--time-250);
     transition-timing-function: var(--transition-bezier);
 }
-.btn-close:hover .btn-img,
-.btn-close:focus .btn-img {
+.modal-button__close:hover .modal-button__img,
+.modal-button__close:focus .modal-button__img {
     fill: var(--primary-color-text);
 }
 
-.form-modal {
-    margin-top: 12px;
-    display: block;
-}
-.name-form {
+/* --- Заголовок модального вікна --- */
+.modal-window__name {
     display: block;
     font-size: 20px;
     line-height: 1.15;
@@ -732,24 +735,33 @@ img {
     letter-spacing: 0.03em;
     color: var(--main-color-text);
 }
-.form-field,
-.form-field-textarea {
+
+/* --- Форма модального вікна --- */
+.modal-form {
+    margin-top: 12px;
+    display: block;
+}
+.modal-form__field {
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
-.form-field {
+.modal-form__field--text {
     margin-bottom: 10px;
 }
-.form-field-check {
-    margin-top: 20px;
-}
-.form-field-textarea {
+.modal-form__field--textarea {
     margin-bottom: 20px;
 }
-
-.modal-input {
+.modal-form__field--check {
+    margin-top: 20px;
+}
+.modal-form__label {
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.01em;
+}
+.modal-form__input {
     display: block;
     width: 448px;
     height: 40px;
@@ -762,11 +774,11 @@ img {
     transition-duration: var(--time-250);
     transition-timing-function: var(--transition-bezier);
 }
-.modal-input:focus, 
-.modal-textarea:focus {
+.modal-form__input:focus, 
+.modal-form__textarea:focus {
     border-color: var(--primary-color-text);
 }
-.logo-modal {
+.modal-form__logo {
     position: absolute;
     top: calc(8px + 50%);
     left: 15px;
@@ -777,21 +789,12 @@ img {
     transition-duration: var(--time-250);
     transition-timing-function: var(--transition-bezier);
 }
-.modal-input:focus + .logo-modal {
+.modal-form__input:focus + .modal-form__logo {
     fill: var(--primary-color-text);
 }
-.user-modal {
-    font-size: 12px;
-    line-height: 1.17;
-    letter-spacing: 0.01em;
-}
-.modal-textarea::placeholder {
-    color: var(--textarea-modal);
-    font-size: 12px;
-    line-height: 14px;
-    letter-spacing: 0.01em;
-}
-.modal-textarea {
+
+/* --- Поле для коментаря --- */
+.modal-form__textarea {
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.01em;
@@ -807,12 +810,62 @@ img {
     transition-duration: var(--time-250);
     transition-timing-function: var(--transition-bezier);
 }
-.form-check-contrakt {
+.modal-form__textarea::placeholder {
+    color: var(--textarea-modal);
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.01em;
+}
+
+/* --- Підтвердження форми --- */
+.modal-form__label--check {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 1.71;
+    letter-spacing: 0.03em;
+    color: var(--secondary-color-text);
+}
+.modal-form__field--check {
+    position: absolute;
+    white-space: nowrap;
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    padding: 0;
+    margin: -1px;
+    clip-path: inset(50%);
+}
+.modal-form__logo--check {
+    display: inline-block; 
+    margin-left: 12px;
+    margin-right: 8px;
+    background-color: var(--footer-color-text);
+    border: 2px solid var(--main-color-text);
+    border-radius: 2px;
+    cursor: pointer;
+
+    transition-property: background-color;
+    transition-duration: var(--time-250);
+    transition-timing-function: var(--transition-bezier);
+}
+.modal-form__field--check:checked + .modal-form__logo--check {
+    display: inline-block;
+    margin-left: 12px;
+    margin-right: 8px;
+    background-color: var(--primary-color-text);
+    border-radius: 2px;
+    border-color: var(--primary-color-text);
+}
+.modal-form__link {
     color: var(--primary-color-text);
     text-decoration: underline 1px;
 }
 
-.hero-button-modal {
+/* --- Кнопка форми модального вікна --- */
+.modal-form__button {
     display: block;
     margin-top: 30px;
     margin-left: auto;
@@ -836,50 +889,8 @@ img {
     transition-duration: var(--time-250);
     transition-timing-function: var(--transition-bezier);
 }
-.hero-button-modal:hover,
-.hero-button-modal:focus {
+.modal-form__button:hover,
+.modal-form__button:focus {
     background-color: var(--active-button);
     cursor: pointer;
-}
-
-.user-modal-check {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    line-height: 1.71;
-    letter-spacing: 0.03em;
-    color: var(--secondary-color-text);
-}
-.modal-input-check {
-    position: absolute;
-    white-space: nowrap;
-    height: 1px;
-    width: 1px;
-    border: 0;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    padding: 0;
-    margin: -1px;
-    clip-path: inset(50%);
-}
-.icon-check-custom {
-    display: inline-block; 
-    margin-left: 12px;
-    margin-right: 8px;
-    background-color: var(--footer-color-text);
-    border: 2px solid var(--main-color-text);
-    border-radius: 2px;
-    cursor: pointer;
-
-    transition-property: background-color;
-    transition-duration: var(--time-250);
-    transition-timing-function: var(--transition-bezier);
-}
-.modal-input-check:checked + .icon-check-custom {
-    display: inline-block;
-    margin-left: 12px;
-    margin-right: 8px;
-    background-color: var(--primary-color-text);
-    border-radius: 2px;
-    border-color: var(--primary-color-text);
 }
