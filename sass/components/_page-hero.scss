@@ -43,7 +43,7 @@
         transition-timing-function: $transition-bezier;
     
         &:hover, &:focus {
-        background-color: $active-button;
+            background-color: $active-button;
         }
     }
 }
