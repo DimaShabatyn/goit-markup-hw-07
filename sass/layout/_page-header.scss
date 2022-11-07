@@ -27,7 +27,7 @@
             color: $primary-color-text;
         }
     }
-    
+
     &-menu {
         display: flex;
         align-items: center;
@@ -70,26 +70,34 @@
             bottom: -1px;
         }
     }
-}
-.header-contacts {
-    display: flex;
-    gap: 30px;
-    &__link {
+    .header-contacts {
         display: flex;
-        align-items: center;
-        color: $secondary-color-text;
-        fill: $secondary-color-text;
-    }
-    &__link:hover, &__link:focus {
-        color: $primary-color-text;
-        fill: $primary-color-text;
-    }
-    &__logo {
-        fill: currentColor;
-        margin-right: 10px;
+        gap: 30px;
 
-        transition-property: fill;
-        transition-duration: $time-250;
-        transition-timing-function: $transition-bezier;
-    }
+        &__link {
+            display: flex;
+            align-items: center;
+            padding: 32px 0;
+
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 1.14;
+            letter-spacing: 0.02em;
+
+            color: $secondary-color-text;
+            fill: $secondary-color-text;
+        }
+        &__link:hover, &__link:focus {
+            color: $primary-color-text;
+            fill: $primary-color-text;
+        }
+        &__logo {
+            fill: currentColor;
+            margin-right: 10px;
+
+            transition-property: fill;
+            transition-duration: $time-250;
+            transition-timing-function: $transition-bezier;
+        }
+    }   
 }
